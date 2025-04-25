@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Record</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Record - {{ today|date:"d/m/Y" }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
